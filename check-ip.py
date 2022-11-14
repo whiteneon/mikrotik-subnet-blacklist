@@ -206,7 +206,11 @@ def main():
             print("IP Address submitted: ",ipAddress)
             print("Loaded cookie: " + HE_COOKIE)
         ipData = queryIP(ipAddress=ipAddress)
-        saveStringToFileInFolder(ipData,'./retrieved-data/',ipAddress + '.txt')
+        if ipData.find("You have reached your query limit on bgp.he.net"):
+            eprint("Query limit reached.....We've been stopped")
+            sys.exit()
+        else:
+            saveStringToFileInFolder(ipData,'./retrieved-data/',ipAddress + '.txt')
     if verbosityLevel > 4:
         print(ipData)
     #chunks = ipData.split("\n")

@@ -1,0 +1,44 @@
+#/ip/firewall/address-list/print file=sdcard/list.txt where list="drop_traffic"
+# nov/14/2022 15:45:26 by RouterOS 7.6
+Flags: D - DYNAMIC
+Columns: LIST, ADDRESS, CREATION-TIME, TIMEOUT
+ #   LIST          ADDRESS          CREATION-TIME         TIMEOUT
+10 D drop_traffic  220.132.79.113   nov/14/2022 15:16:52  5m29s  
+11 D drop_traffic  62.233.50.113    nov/14/2022 15:17:23  1m56s  
+12 D drop_traffic  27.208.164.19    nov/14/2022 15:20:36  5m9s   
+13 D drop_traffic  222.135.125.107  nov/14/2022 15:21:05  5m38s  
+14 D drop_traffic  125.107.181.46   nov/14/2022 15:21:13  5m45s  
+15 D drop_traffic  125.228.55.158   nov/14/2022 15:23:18  8m44s  
+16 D drop_traffic  175.0.39.234     nov/14/2022 15:24:19  8m52s  
+17 D drop_traffic  190.60.73.250    nov/14/2022 15:25:38  10m11s 
+18 D drop_traffic  182.241.174.201  nov/14/2022 15:25:57  10m30s 
+19 D drop_traffic  115.84.178.83    nov/14/2022 15:35:34  20m7s  
+20 D drop_traffic  114.33.122.33    nov/14/2022 15:35:38  20m11s 
+21 D drop_traffic  117.241.113.64   nov/14/2022 15:35:45  20m18s 
+22 D drop_traffic  116.248.33.92    nov/14/2022 15:38:23  22m56s 
+23 D drop_traffic  121.63.218.64    nov/14/2022 15:41:00  25m33s 
+24 D drop_traffic  167.248.133.136  nov/14/2022 15:42:52  27m25s 
+25 D drop_traffic  221.163.23.224   nov/14/2022 15:44:50  29m23s 
+0 D drop_traffic  114.228.152.220  nov/14/2022 13:12:48  22m13s 
+1 D drop_traffic  113.90.246.16    nov/14/2022 13:20:44  59s    
+2 D drop_traffic  123.240.95.59    nov/14/2022 13:22:29  2m44s  
+3 D drop_traffic  175.31.169.133   nov/14/2022 13:24:37  4m51s  
+4 D drop_traffic  116.248.33.92    nov/14/2022 13:32:35  12m50s 
+5 D drop_traffic  51.79.252.196    nov/14/2022 13:34:03  14m17s 
+6 D drop_traffic  188.77.216.22    nov/14/2022 13:34:27  14m41s 
+7 D drop_traffic  114.228.194.244  nov/14/2022 13:38:07  18m22s 
+8 D drop_traffic  41.216.183.76    nov/14/2022 13:40:13  20m28s 
+9 D drop_traffic  173.197.126.114  nov/14/2022 13:44:06  24m20s
+10 D drop_traffic  220.132.79.113   nov/14/2022 15:16:52  10m56s 
+11 D drop_traffic  62.233.50.113    nov/14/2022 15:17:23  7m23s  
+12 D drop_traffic  27.208.164.19    nov/14/2022 15:20:36  10m36s 
+13 D drop_traffic  222.135.125.107  nov/14/2022 15:21:05  11m5s  
+14 D drop_traffic  125.107.181.46   nov/14/2022 15:21:13  11m12s 
+15 D drop_traffic  125.228.55.158   nov/14/2022 15:23:18  14m11s 
+16 D drop_traffic  175.0.39.234     nov/14/2022 15:24:19  14m19s 
+17 D drop_traffic  190.60.73.250    nov/14/2022 15:25:38  15m38s 
+18 D drop_traffic  182.241.174.201  nov/14/2022 15:25:57  15m57s 
+19 D drop_traffic  115.84.178.83    nov/14/2022 15:35:34  25m34s 
+20 D drop_traffic  114.33.122.33    nov/14/2022 15:35:38  25m38s 
+21 D drop_traffic  117.241.113.64   nov/14/2022 15:35:45  25m45s 
+22 D drop_traffic  116.248.33.92    nov/14/2022 15:38:23  28m23s
