@@ -13,8 +13,8 @@ rm ip.txt 2>/dev/null > /dev/null
 #rm newip.ps1 2>/dev/null > /dev/null
 rm $SCRIPT_FILE 2>/dev/null > /dev/null
 #if exported from print use field 7
-cat "$1" | egrep '^[0-9].*' | cut -d$' ' -f5 |sort -n|uniq
-cat "$1" | cut -d$' ' -f5 |sort -n > ip.txt
+cat "$1" | egrep '^[0-9].*' | cut -d$' ' -f5 |sort -n|uniq > ip.txt
+#cat "$1" | cut -d$' ' -f5 |sort -n > ip.txt
 
 #if exported with export, use field 5
 #cat "$1" | cut -d' ' -f5|sort -n > ip.txt

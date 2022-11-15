@@ -14,7 +14,7 @@ HE_COOKIE = ''
 USE_COOKIE_JAR = 0
 
 def loadExportedCookie(cookieFile):
-    global HE_COOKIE
+    #global HE_COOKIE
     strCookie = ''
     lines = open(cookieFile,'r').read().splitlines()
     for eachLine in lines:
@@ -26,9 +26,11 @@ def loadExportedCookie(cookieFile):
                     strCookie = strCookie + "; "
                 strCookie = strCookie + elements[5] + "=" + elements[6]
                 #print(eachLine)
-    if DEBUG:
-        print(strCookie)
-    HE_COOKIE = strCookie
+    #HE_COOKIE = strCookie
+    return strCookie
+
+def loadCookie():
+    return open('cookie.txt','r').read().splitlines()[0]
 
 def gprint(debugMessage):
     if DEBUG:
@@ -118,9 +120,6 @@ def saveURLToFolder(strUrl,strDir):
     else:
         wprint(fileName + " already exists, skipping")
 
-def loadCookie():
-    global HE_COOKIE
-    HE_COOKIE = open('cookie.txt','r').read().splitlines()[0]
 
 def queryIP(ipAddress):
     global HE_QUERY
@@ -200,11 +199,14 @@ def main():
     ipData = loadStringFromFileInFolder('./retrieved-data/',ipAddress + '.txt')
     if ipData == None:
         #Saved data doesn't exist, retrieve it and save it
-        loadExportedCookie('cookies-he-net.txt')
-        #loadCookie()
+        #HE_COOKIE = loadExportedCookie('cookies-he-net.txt')
+        HE_COOKIE = loadExportedCookie('cookies.txt')
+        #HE_COOKIE = loadCookie()
         if DEBUG:
             print("IP Address submitted: ",ipAddress)
             print("Loaded cookie: " + HE_COOKIE)
+        if verbosityLevel > 3:
+            sys.exit()
         ipData = queryIP(ipAddress=ipAddress)
         if ipData.find("You have reached your query limit on bgp.he.net"):
             eprint("Query limit reached.....We've been stopped")
