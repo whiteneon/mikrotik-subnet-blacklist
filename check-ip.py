@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from selenium import webdriver
 import os, sys, requests, argparse, re, time
 #import shutil
 import urllib.request
@@ -120,7 +121,37 @@ def saveURLToFolder(strUrl,strDir):
     else:
         wprint(fileName + " already exists, skipping")
 
-
+def queryIPSelenium(ipAddress):
+    global HE_QUERY
+    global DEBUG
+    url = HE_QUERY + ipAddress
+    if DEBUG:
+        print("URL: " + url)
+    os.environ['WDM_LOCAL'] = '1'
+    localPath = os.path.curdir
+    localPath = os.path.abspath(localPath)
+    #print(localPath)
+    localPath = localPath + '\.wdm\drivers\geckodriver\win64\0.32\geckodriver.exe'
+    #print(localPath)
+    driver = webdriver.Firefox()
+    driver.implicitly_wait(0.5)
+    #maximize browser
+    #driver.maximize_window()
+    #launch URL
+    driver.get(url)
+    #get file path to save page
+    #n=os.path.join("C:\\Users\\gbell\\Downloads","ip-test.html")
+    #open file in write mode with encoding
+    #f = codecs.open(n, "w", "utf-8")
+    #obtain page source
+    h = driver.page_source
+    #write page source content to file
+    #f.write(h)
+    #f.close()
+    #close browser
+    driver.quit()
+    return h
+    
 def queryIP(ipAddress):
     global HE_QUERY
     global DEBUG
@@ -200,16 +231,17 @@ def main():
     if ipData == None:
         #Saved data doesn't exist, retrieve it and save it
         #HE_COOKIE = loadExportedCookie('cookies-he-net.txt')
-        HE_COOKIE = loadExportedCookie('cookies.txt')
+        #HE_COOKIE = loadExportedCookie('cookies.txt')
         #HE_COOKIE = loadCookie()
         if DEBUG:
             print("IP Address submitted: ",ipAddress)
-            print("Loaded cookie: " + HE_COOKIE)
-        if verbosityLevel > 3:
-            sys.exit()
-        ipData = queryIP(ipAddress=ipAddress)
-        if ipData.find("You have reached your query limit on bgp.he.net"):
+            #print("Loaded cookie: " + HE_COOKIE)
+        ipData = queryIPSelenium(ipAddress=ipAddress)
+        if ipData.find("You have reached your query limit on bgp.he.net") != -1:
+            eprint("ERROR: Query limit reached")
+            gprint(ipData)
             eprint("Query limit reached.....We've been stopped")
+            saveStringToFileInFolder(ipData,'./retrieved-data/','error.txt')
             sys.exit()
         else:
             saveStringToFileInFolder(ipData,'./retrieved-data/',ipAddress + '.txt')

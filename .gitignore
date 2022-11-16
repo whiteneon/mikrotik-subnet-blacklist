@@ -6,7 +6,7 @@ script.rsc
 newip.ps1
 newip.sh
 retrieved-data/
-
+.wdm/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
