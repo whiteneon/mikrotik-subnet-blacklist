@@ -45,7 +45,7 @@ fi
 if [[ $LINUX -eq 1 ]]; then
 	echo "#!/bin/bash" > $SCRIPT_FILE
 fi
-if [[ 1 -eq 2 ]]; then
+if [[ $LINUX -eq 1 ]]; then
 	cat ip.txt | xargs -I {} echo ./check-ip.py -l $ADDRESS_LIST -i {} >> $SCRIPT_FILE
 else
 	COUNTER=1

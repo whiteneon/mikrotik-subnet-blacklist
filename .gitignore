@@ -7,6 +7,10 @@ newip.ps1
 newip.sh
 retrieved-data/
 .wdm/
+bin/
+pyvenv.cfg
+selenium-stuff/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

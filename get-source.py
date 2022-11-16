@@ -5,8 +5,8 @@ from selenium import webdriver
 # selenium 4 Firefox
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
-
-import codecs, os, sys
+#import codecs
+import os, sys
 
 def main():
     os.environ['WDM_LOCAL'] = '1'
@@ -34,12 +34,12 @@ def main():
     #get file path to save page
     n=os.path.join("C:\\Users\\gbell\\Downloads","ip-test.html")
     #open file in write mode with encoding
-    f = codecs.open(n, "w", "utf-8")
+    #f = codecs.open(n, "w", "utf-8")
     #obtain page source
     h = driver.page_source
     #write page source content to file
-    f.write(h)
-    f.close()
+    #f.write(h)
+    #f.close()
     #close browser
     driver.quit()
 
