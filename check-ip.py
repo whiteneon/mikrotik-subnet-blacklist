@@ -9,6 +9,11 @@ from fileinput import filename
 from urllib.parse import urlparse
 from colorama import Back, Fore, Style
 
+linuxSystem = 0
+
+if linuxSystem == 1:
+    from selenium.webdriver.firefox.options import Options
+
 HE_QUERY="https://bgp.he.net/ip/"
 DEBUG=0
 
@@ -97,7 +102,13 @@ def queryIPSelenium(ipAddress):
     #print(localPath)
     localPath = localPath + '\.wdm\drivers\geckodriver\win64\0.32\geckodriver.exe'
     #print(localPath)
-    driver = webdriver.Firefox()
+    if linuxSystem == 1:
+        options = Options()
+        options.binary_location = r'/mnt/c/Users/gbell/Documents/SourceCode/mikrotik-subnet-blacklist/selenium-stuff/geckodriver'
+        #driver = webdriver.Firefox(executable_path=r'C:\WebDrivers\geckodriver.exe', options=options)
+        driver = webdriver.Firefox(options=options)
+    else:
+        driver = webdriver.Firefox()
     driver.implicitly_wait(0.5)
     #maximize browser
     #driver.maximize_window()

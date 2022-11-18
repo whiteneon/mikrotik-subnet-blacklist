@@ -2,7 +2,7 @@ ip*.txt
 *cookie*.txt
 lists/
 20*.txt
-script.rsc
+*.rsc
 newip.ps1
 newip.sh
 retrieved-data/

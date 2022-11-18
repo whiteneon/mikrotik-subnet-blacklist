@@ -35,7 +35,8 @@ if [[ $USE_IP_TXT -eq 0 ]]; then
 	rm ip.txt 2>/dev/null > /dev/null
 	#rm newip.ps1 2>/dev/null > /dev/null
 	#if exported from print use field 7
-	cat "$1" | egrep '^.[0-9].*drop_traffic.*' | tr -s ' ' | \
+	dos2unix "$1" 2>/dev/null > /dev/null
+	cat "$1" | egrep '^?[0-9].*drop_traffic.*' | tr -s ' ' | \
 	sed 's/^ \(.*\)/\1/g' | cut -d$' ' -f4 |sort -n|uniq > ip.txt
 	#cat "$1" | cut -d$' ' -f5 |sort -n > ip.txt
 
