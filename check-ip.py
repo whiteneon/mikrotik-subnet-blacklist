@@ -91,6 +91,15 @@ def saveURLToFolder(strUrl,strDir):
         wprint(fileName + " already exists, skipping")
 
 def queryIPSelenium(ipAddress):
+    """Uses selenium webdriver to use geckodriver (firefox) to retrieve bgp.he.net
+       webpage (passing javascript checks in the process)
+
+    Args:
+        ipAddress (string): quad dotted notation of IP address to retrieve info about
+
+    Returns:
+        string: source of bgp.he.net web page specific to IP requested
+    """
     global HE_QUERY
     global DEBUG
     url = HE_QUERY + ipAddress
@@ -112,12 +121,14 @@ def queryIPSelenium(ipAddress):
     driver.implicitly_wait(0.5)
     #maximize browser
     #driver.maximize_window()
+    #driver.set_window_size(width=150,height=150)
     #launch URL
     driver.get(url)
     #get file path to save page
     #n=os.path.join("C:\\Users\\gbell\\Downloads","ip-test.html")
     #open file in write mode with encoding
     #f = codecs.open(n, "w", "utf-8")
+    driver.save_full_page_screenshot('./retrieved-data/screenshot.png')
     #obtain page source
     h = driver.page_source
     #write page source content to file

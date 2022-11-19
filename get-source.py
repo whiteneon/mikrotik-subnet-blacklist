@@ -30,18 +30,28 @@ def main():
     #maximize browser
     #driver.maximize_window()
     #launch URL
-    driver.get("https://bgp.he.net/ip/65.17.166.200")
+    #driver.get("https://bgp.he.net/ip/49.17.16.200")
+    driver.get("https://www.whiteneon.com/births/")
     #get file path to save page
     n=os.path.join("C:\\Users\\gbell\\Downloads","ip-test.html")
     #open file in write mode with encoding
     #f = codecs.open(n, "w", "utf-8")
     #obtain page source
     h = driver.page_source
+    print("Page Source follows:")
+    print(h)
+    driver.get("https://www.whiteneon.com/kelsea.jpg")
+    j = driver.get_full_page_screenshot_as_base64()
+    #print("Base64 encoded data follows:")
+    #print(j)
     #write page source content to file
     #f.write(h)
     #f.close()
     #close browser
     driver.quit()
+    with open('./retrieved-data/kelsea.jpg.base64','w') as f:
+        f.write(j)
+    print("Done")
 
 if __name__ == "__main__":
     main()
